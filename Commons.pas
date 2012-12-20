@@ -8,6 +8,8 @@ const
     TOP = 4;
     BOTTOM = 8;
 
+    Scale = 20;
+
 type
     Body_Part = record
         X,Y : Integer;

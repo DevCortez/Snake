@@ -36,8 +36,8 @@ begin
     Self.Speed := Speed;
     for x := 0 to Size-1 do
     begin
-        Self.Body[x].x := Pos_x * 10 + x * 10;
-        Self.Body[x].y := Pos_y * 10;
+        Self.Body[x].x := Pos_x * Commons.Scale + x * Commons.Scale;
+        Self.Body[x].y := Pos_y * Commons.Scale;
     end;
     Form := WParent;
     Self.Direction := LEFT;
@@ -72,10 +72,10 @@ begin
     end;
 
     case Self.Direction of
-        RIGHT  : inc(Self.Body[0].X, Speed * 10);
-        LEFT   : dec(Self.Body[0].X, Speed * 10);
-        TOP    : dec(Self.Body[0].Y, Speed * 10);
-        BOTTOM : inc(Self.Body[0].Y, Speed * 10);
+        RIGHT  : inc(Self.Body[0].X, Speed * Commons.Scale);
+        LEFT   : dec(Self.Body[0].X, Speed * Commons.Scale);
+        TOP    : dec(Self.Body[0].Y, Speed * Commons.Scale);
+        BOTTOM : inc(Self.Body[0].Y, Speed * Commons.Scale);
     end;
 end;
 
@@ -156,7 +156,7 @@ begin
     //Desenha a cobra de fato
     Form.Canvas.Brush.Color := rgb(rv, gv, bv);
     for x := 0 to Get_Size()-1 do
-        Form.Canvas.Rectangle(Self.Body[x].X, Self.Body[x].Y, Self.Body[x].X + 10, Self.Body[x].Y + 10);
+        Form.Canvas.Rectangle(Self.Body[x].X, Self.Body[x].Y, Self.Body[x].X + Commons.Scale, Self.Body[x].Y + Commons.Scale);
 end;
 
 end.

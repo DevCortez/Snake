@@ -40,8 +40,8 @@ begin
     Score       := 0;
 
     //Cria os objetos do jogo
-    Player := _Snake.Create(40,1,4,1,Self);
-    Apple  := _Apple.Create(80,60,Self);
+    Player := _Snake.Create(40,1,7,1,Self);
+    Apple  := _Apple.Create(800,600,Self);
 
     while(not done) do
     begin
@@ -69,7 +69,7 @@ begin
     begin
         inc(Self.Score, Apple.Pegar);
         Apple.Destroy;
-        Apple := _Apple.Create(80,60,Self);
+        Apple := _Apple.Create(800,600,Self);
         Player.Increase;
     end;
 

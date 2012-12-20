@@ -22,8 +22,8 @@ implementation
 
 constructor _Apple.Create(X: Integer; Y: Integer; WParent : TForm);
 begin
-    Self.Position.X := Random(x) * 10;
-    Self.Position.Y := Random(y) * 10;
+    Self.Position.X := Random(x div Commons.Scale) * Commons.Scale;
+    Self.Position.Y := Random(y div Commons.Scale) * Commons.Scale;
     Form := WParent;
     Self.Created := GetTickCount();
 end;
@@ -36,7 +36,7 @@ begin
         Form.Canvas.Brush.Color := rgb(255,128,0)
     else
         Form.Canvas.Brush.Color := clRed;
-    Form.Canvas.Rectangle( Position.X, Position.Y, Position.X + 10, Position.Y + 10 );
+    Form.Canvas.Rectangle( Position.X, Position.Y, Position.X + Commons.Scale, Position.Y + Commons.Scale );
 end;
 
 function _Apple.Pegar;
